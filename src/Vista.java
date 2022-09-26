@@ -21,6 +21,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Color;
+import javax.swing.ScrollPaneConstants;
 /**
  * 
  * @author Javier Cereceda
@@ -54,16 +55,19 @@ public class Vista extends JFrame {
 		contenedorPrincipal.setLayout(null);
 
 		scrollPane = new JScrollPane();
+		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		scrollPane.setBounds(33, 35, 156, 156);
 		getContentPane().add(scrollPane);
 
 		txtANota = new JTextArea();
+		txtANota.setWrapStyleWord(true);
+		txtANota.setLineWrap(true);
 		txtANota.setFont(new Font("Calibri", Font.PLAIN, 12));
 		scrollPane.setViewportView(txtANota);
 
 		spinnerFecha = new JSpinner();
 		spinnerFecha.setFont(new Font("Calibri", Font.PLAIN, 12));
-		spinnerFecha.setModel(new SpinnerDateModel(new Date(1663020000000L), null, null, Calendar.DAY_OF_YEAR));
+		spinnerFecha.setModel(new SpinnerDateModel(new Date(), null, null, Calendar.DAY_OF_YEAR));
 		spinnerFecha.setBounds(269, 35, 103, 20);
 		getContentPane().add(spinnerFecha);
 
